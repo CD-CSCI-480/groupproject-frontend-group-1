@@ -1,4 +1,4 @@
-import { View, Text, Platform, FlatList, TextInput, StyleSheet, Image } from "react-native";
+import { View, Text, Platform, FlatList, TextInput, StyleSheet, Image, ScrollView, Dimensions } from "react-native";
 import {StatusBar} from 'expo-status-bar';
 import ExpenseItem from "./ExpenseItem";
 import Button from '../../components/Buttons'
@@ -77,11 +77,13 @@ const ExpenseList=()=>{
     return (
         <View style={{padding: 10, width: 500, position: 'absolute'}}>
             <Text style={styles.title}>EXPENSES</Text>
-            <FlatList 
-            data={items} 
-            renderItem={({item})=><ExpenseItem expenseItem={item}/>}
-            contentContainerStyle={{padding: 125, gap: 125}}
-            />
+            <View style={{ height: Dimensions.get('screen').height / 3, justifyContent: 'center', alignItems: 'center' }}>
+                <FlatList scrollEnabled={true} style={{flex:1}}
+                data={items} 
+                renderItem={({item})=><ExpenseItem expenseItem={item}/>}
+                contentContainerStyle={{padding: 160, gap: 160}}
+                />
+             </View>
             <Text style={styles.label}>Task</Text>
             <TextInput placeholder="Name" style={styles.input} value={name} onChangeText={setName}/>
 
