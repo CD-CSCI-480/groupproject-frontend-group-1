@@ -34,7 +34,7 @@ const Expense=({expenseItem}: ExpenseListItemProps)=> {
                         <use xlinkHref='#c' y='100%'/>
                         <use xlinkHref='#c' x='100%' y='100%'/>
                     </mask>
-                    <use xlinkHref='#r' fill='#0f0' mask='url(#m)'/>
+                    <use xlinkHref='#r' fill='#44d6b4' mask='url(#m)'/>
                     </svg>
                 </div>
                 <View style={styles.container3}>
