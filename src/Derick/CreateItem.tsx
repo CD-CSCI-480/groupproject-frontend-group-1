@@ -90,7 +90,9 @@ const CreateNewExpense=()=> {
             id: 0,
             task: name,
             dueDate: dueDay,
-            cost: parseFloat(price)
+            cost: parseFloat(price),
+            Items: [],
+            deleteExpense: ()=>{setItems(items.filter((item)=>item.id!=0));},
         };
         setItems([newItem, ...items]);
     };

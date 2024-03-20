@@ -1,7 +1,7 @@
 //Import important functions like Text in order to implement them into the UI
 import {View, Text, StyleSheet, Image, Pressable, TextInput} from 'react-native';
 //Import the React library
-import React from 'react';
+import React, { useState } from 'react';
 //Import FontAwesome icons so the UI can contain icons
 import { FontAwesome } from '@expo/vector-icons';
 //Import the color library to set UI elements' colors
@@ -21,13 +21,25 @@ type ExpenseListItemProps={
 };
 
 const Expense=({expenseItem}: ExpenseListItemProps)=> {
+    const Delete=()=>{expenseItem.deleteExpense(expenseItem.id);}
     return (
         <View style={styles.container}>
             <View style={styles.container3}>
-                <Image source={defaultPlaqueImage} style={styles.image} resizeMode="contain"/>
+                <div className='box'>
+                    <svg>
+                    <mask id='m' fill='#fff'>
+                        <rect id='r' width='100%' height='100%'/>
+                        <circle id='c' r='25' fill='#000'/>
+                        <use xlinkHref='#c' x='100%'/>
+                        <use xlinkHref='#c' y='100%'/>
+                        <use xlinkHref='#c' x='100%' y='100%'/>
+                    </mask>
+                    <use xlinkHref='#r' fill='#0f0' mask='url(#m)'/>
+                    </svg>
+                </div>
                 <View style={styles.container3}>
                     <Text>    </Text>
-                    <AntDesign name="checkcircleo" size={30} color="black" style={styles.check}/>
+                    <AntDesign name="checkcircleo" onPress={Delete} size={30} color="black" style={styles.check}/>
                     <View style={{flexDirection: 'row'}}>
                         <View style={{flex: 1, padding: 5,}}>
                             <Text style={styles.title}>{expenseItem.task}</Text>

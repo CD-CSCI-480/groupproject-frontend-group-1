@@ -31,7 +31,9 @@ const CartProvider=({children}: PropsWithChildren)=> {
             id: 0,
             task: "Pay bills",
             dueDate: "4/16",
-            cost: 113.29
+            cost: 113.29,
+            Items: [],
+            deleteExpense: ()=>{setItems(items.filter((item)=>item.id!=0));},
         };
         setItems([newItem, ...items]);
     };

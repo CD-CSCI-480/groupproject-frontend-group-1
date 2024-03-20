@@ -3,4 +3,6 @@ export type ExpenseToPayItem={
     task: string
     dueDate: string
     cost: number
+    Items: ExpenseToPayItem[]
+    deleteExpense: (ID: number)=>void
 }

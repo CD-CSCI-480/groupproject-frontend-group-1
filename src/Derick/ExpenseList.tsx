@@ -37,9 +37,28 @@ const ExpenseList=()=>{
             id: id,
             task: name,
             dueDate: dueDay,
-            cost: parseFloat(price)
+            cost: parseFloat(price),
+            Items: [],
+            deleteExpense: (ID: number)=>{
+                console.log("ID: "+ID);
+                console.log("Items length: "+items.length);
+                for (a=0; a<items.length; a++) {
+                    items[a].Items=newItem.Items.filter((item)=>item.id!=ID);
+                }
+                setItems(newItem.Items.filter((item)=>item.id!=ID));
+                
+                console.log("Items length now: "+items.length);
+            },
         };
-        setItems([newItem, ...items]);
+        //setItems([newItem, ...items]);
+        items[items.length]=newItem;
+        console.log("Items length: "+items.length);
+        for (a=0; a<items.length; a++) {
+            items[a].Items=items;
+            console.log("Item ID: "+items[a].id);
+            console.log("items length now: "+items.length);
+            console.log("Items length now: "+items[a].Items.length);
+        }
         setID(id+1);
     };
 
