@@ -6,3 +6,9 @@ export type ExpenseToPayItem={
     Items: ExpenseToPayItem[]
     deleteExpense: (ID: number)=>void
 }
+
+export type bank={
+    id: number
+    name: string
+    image: string | null
+}

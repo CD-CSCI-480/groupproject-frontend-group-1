@@ -106,10 +106,10 @@ const styles=StyleSheet.create({
     },
     input: {
         backgroundColor: 'white',
-        padding: 1,
+        padding: 5,
         borderRadius: 5,
         marginTop: 5,
-        marginBottom: 5,
+        marginBottom: 20,
     },
     label: {
         fontSize: 16,

@@ -8,9 +8,10 @@ import { FontAwesome } from '@expo/vector-icons';
 import Colors from '../../constants/Colors';
 import { AntDesign } from '@expo/vector-icons';
 import { FontAwesome6 } from '@expo/vector-icons';
-import {Link} from 'expo-router';
+import {Link, useRouter} from 'expo-router';
 import Button from '../../components/Buttons'
 import { ExpenseToPayItem } from './types';
+import MenuScreen from './PayForItem'
 
 export const defaultPlaqueImage= require('../Images/GreenPlaque.png');
 
@@ -22,6 +23,7 @@ type ExpenseListItemProps={
 
 const Expense=({expenseItem}: ExpenseListItemProps)=> {
     const Delete=()=>{expenseItem.deleteExpense(expenseItem.id);}
+    const router=useRouter();
     return (
         <View style={styles.container}>
             <View style={styles.container3}>
@@ -47,7 +49,9 @@ const Expense=({expenseItem}: ExpenseListItemProps)=> {
                         </View>
                         <View style={styles.quantitySelector}>
                             <Text>${expenseItem.cost}</Text>
-                            <FontAwesome6 name="money-check-dollar" size={30} color="black" style={styles.money}/>
+                            <Link href={'/PayForItem'} asChild>
+                                <FontAwesome6 name="money-check-dollar" size={30} color="black" style={styles.money}/>
+                            </Link>
                         </View>
                     </View>
                 </View>

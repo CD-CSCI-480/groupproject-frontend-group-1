@@ -6,8 +6,9 @@ import { FontAwesome6 } from '@expo/vector-icons';
 import Button from './components/Buttons';
 import {Link} from 'expo-router';
 import ExpenseList from './src/Derick/ExpenseList'
+import MenuItem from './src/Derick/PayForItem'
 
-export const backgroundImage= require('./src/Images/GreenPlaqueTall.png');
+export const backgroundImage= require('./src/Images/PlaqueEmpty.png');
 
 export default function App() {
   return (
@@ -18,6 +19,7 @@ export default function App() {
           <StatusBar style="auto" />
           <ExpenseList/>
         </View>
+       
       </View>
     </View> 
   );
